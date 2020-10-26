@@ -4,8 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "@cdm-logger/server": "^6.0.0",
     "apollo-server": "^2.18.2",
-    "esm": "^3.2.25"
+    "apollo-server-cache-redis": "^1.2.2",
+    "bunyan": "^1.8.14",
+    "esm": "^3.2.25",
+    "graphql-rabbitmq-subscriptions": "^1.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

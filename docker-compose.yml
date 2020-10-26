@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  apollo-redis:
+    image: 'redis:alpine'
+    container_name: 'apollo-redis'
+    restart: always
+    ports:
+      - '6379:6379'
+
+  apollo-rabbitmq:
+    image: 'rabbitmq:management-alpine'
+    container_name: 'apollo-rabbitmq'
+    restart: always
+    ports:
+      - '5672:5672'
+      - '15672:15672'
