@@ -1,3 +1,5 @@
+# docker run -it --network production-apollo-server_default --rm redis redis-cli -h apollo-redis
+
 version: '3'
 
 services:

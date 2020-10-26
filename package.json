@@ -7,6 +7,7 @@
     "@cdm-logger/server": "^6.0.0",
     "apollo-server": "^2.18.2",
     "apollo-server-cache-redis": "^1.2.2",
+    "apollo-server-plugin-response-cache": "^0.5.5",
     "bunyan": "^1.8.14",
     "esm": "^3.2.25",
     "graphql-rabbitmq-subscriptions": "^1.1.0"
