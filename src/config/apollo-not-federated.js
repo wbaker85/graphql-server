@@ -1,21 +1,16 @@
 import { ApolloServer } from 'apollo-server';
-import { ApolloGateway } from '@apollo/gateway';
 import { RedisCache } from 'apollo-server-cache-redis';
 import responseCachePlugin from 'apollo-server-plugin-response-cache';
 
 const OpentracingPlugin = require('apollo-opentracing').default;
 import tracer from './tracer';
 
-const gateway = new ApolloGateway({
-  serviceList: [
-    { name: 'Authors', url: 'http://localhost:4001' },
-    { name: 'Books', url: 'http://localhost:4002' },
-  ],
-});
+import typeDefs from './typeDefs';
+import resolvers from './resolvers';
 
 const server = new ApolloServer({
-  gateway,
-  subscriptions: false,
+  typeDefs,
+  resolvers,
   plugins: [
     responseCachePlugin(),
     OpentracingPlugin({
