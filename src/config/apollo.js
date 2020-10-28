@@ -6,6 +6,8 @@ import responseCachePlugin from 'apollo-server-plugin-response-cache';
 const OpentracingPlugin = require('apollo-opentracing').default;
 import tracer from './tracer';
 
+import myPlugin from '../tracing_plugin/index';
+
 const gateway = new ApolloGateway({
   serviceList: [
     { name: 'Authors', url: 'http://localhost:4001' },
@@ -17,11 +19,12 @@ const server = new ApolloServer({
   gateway,
   subscriptions: false,
   plugins: [
+    myPlugin,
     responseCachePlugin(),
-    OpentracingPlugin({
-      server: tracer,
-      local: tracer,
-    }),
+    // OpentracingPlugin({
+    //   server: tracer,
+    //   local: tracer,
+    // }),
   ],
   cache: new RedisCache({
     host: 'localhost',
